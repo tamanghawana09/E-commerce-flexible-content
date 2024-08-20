@@ -66,13 +66,14 @@ if($query->have_posts()){
 
                     //Apply filter
                     if(!empty($_GET['product_name']) && stripos($product_name, sanitize_text_field($_GET['product_name'])) === false){
-                        continue; //skip this row if the name doesn't match
+                        continue; 
                     }
 
-                    if(!empty($_GET['price']) && stripos($product_price, sanitize_text_field($_GET['price']))){
+                    if(!empty($_GET['price']) && $product_price !=sanitize_text_field($_GET['price'])){
                         continue;
                     }
-                    if(!empty($_GET['rating']) && stripos($product_rating, sanitize_text_field($_GET['rating']))){
+                    if(!empty($_GET['rating']) && $product_rating != sanitize_text_field($_GET['rating']))
+                    {
                         continue;
                     }
 
